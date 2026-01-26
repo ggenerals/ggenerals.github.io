@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864">
+  <defs>
+    <!-- 绿色柱子用：左蓝右绿 -->
+    <linearGradient id="grad-blue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#CBEAFF"/>
+      <stop offset="100%" stop-color="#8EE6C9"/>
+    </linearGradient>
+    <linearGradient id="grad-green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E9FFF0"/>
+      <stop offset="100%" stop-color="#C9F7A2"/>
+    </linearGradient>
+
+    <!-- 红色柱子用：左绿右蓝（same gradients, swapped sides) -->
+    <!-- (we'll just swap fill assignments in usage) -->
+  </defs>
+
+  <!-- 柱子 1: 绿色, x=0, y=59, w=138, h=684 -->
+  <g>
+    <rect x="0" y="59" width="69" height="684" fill="url(#grad-blue)"/>
+    <rect x="69" y="59" width="69" height="684" fill="url(#grad-green)"/>
+    <polygon points="0,59 138,59 69,128" fill="#D0ECFF"/> <!-- top: y + w/2 = 59+69=128 -->
+    <polygon points="0,743 138,743 69,674" fill="#E0F7DA"/> <!-- bottom: y+h=743, vertex=743-69=674 -->
+  </g>
+
+  <!-- 柱子 2: 绿色, x=232, y=401, w=138, h=342 -->
+  <g>
+    <rect x="232" y="401" width="69" height="342" fill="url(#grad-blue)"/>
+    <rect x="301" y="401" width="69" height="342" fill="url(#grad-green)"/>
+    <polygon points="232,401 370,401 301,470" fill="#D0ECFF"/> <!-- 401+69=470 -->
+    <polygon points="232,743 370,743 301,674" fill="#E0F7DA"/> <!-- 401+342=743; 743-69=674 -->
+  </g>
+
+  <!-- 柱子 3: 红色, x=496, y=122, w=138, h=342 -->
+  <g>
+    <!-- 红色柱：左绿右蓝, 上绿下蓝 -->
+    <rect x="496" y="122" width="69" height="342" fill="url(#grad-green)"/>
+    <rect x="565" y="122" width="69" height="342" fill="url(#grad-blue)"/>
+    <polygon points="496,122 634,122 565,191" fill="#E0F7DA"/> <!-- top triangle: green -->
+    <polygon points="496,464 634,464 565,395" fill="#D0ECFF"/> <!-- bottom: 122+342=464; 464-69=395 -->
+  </g>
+
+  <!-- 柱子 4: 红色, x=728, y=122, w=138, h=684 -->
+  <g>
+    <rect x="728" y="122" width="69" height="684" fill="url(#grad-green)"/>
+    <rect x="797" y="122" width="69" height="684" fill="url(#grad-blue)"/>
+    <polygon points="728,122 866,122 797,191" fill="#E0F7DA"/>
+    <polygon points="728,806 866,806 797,737" fill="#D0ECFF"/> <!-- 122+684=806; 806-69=737 -->
+  </g>
+</svg>
