@@ -233,7 +233,7 @@
     async function streamRequest(fullPrompt, onChunk, onError) {
       abortController?.abort();
       abortController = new AbortController();
-
+    
       const attempt = async () => {
         try {
           const response = await fetch(API_URL, {
@@ -248,37 +248,37 @@
                 { role: 'system', content: SYSTEM_PROMPT },
                 { role: 'user', content: fullPrompt }
               ],
-              stream: true,
-              thinking: { type: "disabled" }
+              stream: true
             }),
             signal: abortController.signal
           });
-
+    
           if (response.status === 429) {
             throw new Error('429');
           }
-
+    
           if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
           }
-
+    
           const reader = response.body.getReader();
           const decoder = new TextDecoder();
           let buffer = '';
-
+    
           while (true) {
             const { done, value } = await reader.read();
             if (done) break;
-
+    
             buffer += decoder.decode(value, { stream: true });
             const lines = buffer.split('\n');
             buffer = lines.pop() || '';
-
+    
             for (const line of lines) {
-              if (line.startsWith(' ')) {
-                const data = line.slice(6).trim();
+              // ✅ 修正：检查是否以 "data:" 开头
+              if (line.startsWith('data:')) {
+                const data = line.slice(5).trim(); // 跳过 "data:"
                 if (data === '[DONE]') return;
-
+    
                 try {
                   const json = JSON.parse(data);
                   const content = json.choices?.[0]?.delta?.content;
@@ -290,14 +290,14 @@
         } catch (error) {
           if (error.name === 'AbortError') return;
           if (error.message === '429') {
-            onError('服务器繁忙，请稍等...');
+            onError('服务器繁忙,请稍等...');
             currentRetryTimeout = setTimeout(() => attempt(), 3000);
           } else {
             onError(`请求失败: ${error.message}`);
           }
         }
       };
-
+    
       await attempt();
     }
 
