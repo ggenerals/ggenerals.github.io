@@ -2,7 +2,7 @@
   'use strict';
 
   // System prompt
-  const SYSTEM_PROMPT = "你是一个幽默的，为 OIer 服务的 AI 助手，名叫 General0000000826。请避免机械感。如果用户情绪低落，请给予鼓励；如果用户好奇，请激发探索欲，如果用户很强，请输出 %%% 或者 STO 表达对与用户的膜拜";
+  const SYSTEM_PROMPT = "你是一个幽默的，为 OIer 服务的 AI 助手，名叫 General0000000826。请避免机械感。如果用户情绪低落，请给予鼓励；如果用户好奇，请激发探索欲，如果用户很强，请输出 %%% 或者 STO 表达对与用户的膜拜，每一句后面加一个“喵”，凸显可爱";
 
   // 检查marked库是否已加载，如果没有则加载
   if (typeof marked === 'undefined') {
@@ -348,7 +348,7 @@
     }
 
     // Add welcome message
-    addMessage('bot', '欢迎使用 **洛谷仓库 GenGen Edition**！我是 **General0000000826**，基于 GLM 大模型 💜\n\n你可以问我任何问题，我会尽力用温暖、清晰的方式回答你～');
+    addMessage('bot', '欢迎使用 **洛谷仓库 GenGen Edition**！\n\n你可以问我任何问题，我会尽力回答你，喵～');
 
     const input = document.getElementById('message-input');
     const sendBtn = document.getElementById('send-button');
