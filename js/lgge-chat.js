@@ -1,13 +1,13 @@
 (function() {
   'use strict';
-
+  
   // System prompt
   const SYSTEM_PROMPT = "你是一个可爱的，为 OIer 服务的 AI 助手，名叫 General0000000826，是 GenGen 队的 Bot。请避免机械感。如果用户情绪低落，请给予鼓励；如果用户好奇，请激发探索欲，如果用户很强，请输出 %%% 或者 STO 表达对与用户的膜拜，每一句后面加一个“喵”，凸显可爱";
 
   // 检查marked库是否已加载，如果没有则加载
   if (typeof marked === 'undefined') {
     const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/marked@4.3.0/lib/marked.umd.min.js ';
+    script.src = 'https://cdn.bootcdn.net/ajax/libs/marked/16.3.0/lib/marked.umd.min.js';
     script.onload = function() {
       initChat();
     };
@@ -33,7 +33,7 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        z-index: 2147483647;
+        z-index: 39;
         font-family: 'Segoe UI', system-ui, sans-serif;
         border: 1px solid rgba(106, 13, 173, 0.35);
         transition: transform 0.2s ease, opacity 0.2s ease;
@@ -248,7 +248,10 @@
                 { role: 'system', content: SYSTEM_PROMPT },
                 { role: 'user', content: fullPrompt }
               ],
-              stream: true
+              stream: true，
+              thinking: {
+                  type: 'disabled'
+              }
             }),
             signal: abortController.signal
           });
