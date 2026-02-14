@@ -22,9 +22,9 @@
     style.textContent = `
       #chat-sidebar {
         position: fixed;
-        left: 70px;
+        left: 90px;
         top: 75px;
-        width: 360px;
+        width: 380px;
         height: 91%;
         background: rgba(22, 8, 36, 0.94);
         backdrop-filter: blur(14px);
@@ -59,7 +59,7 @@
         white-space: nowrap;
         margin-right: 10px;
       }
-      .action-btn {
+      .chat-btn {
         background: rgba(255, 255, 255, 0.15);
         color: #d9c2ff;
         border: none;
@@ -70,7 +70,7 @@
         margin-left: 4px;
         transition: background 0.2s;
       }
-      .action-btn:hover {
+      .chat-btn:hover {
         background: rgba(255, 255, 255, 0.25);
       }
       #chat-messages {
@@ -172,8 +172,8 @@
       <div id="selection-bar">
         <div id="selection-text"></div>
         <div>
-          <button class="action-btn" id="btn-summarize">总结</button>
-          <button class="action-btn" id="btn-explain">解释</button>
+          <button class="chat-btn" id="btn-summarize">总结</button>
+          <button class="chat-btn" id="btn-explain">解释</button>
         </div>
       </div>
       <div id="input-area">
