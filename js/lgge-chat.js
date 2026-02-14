@@ -358,7 +358,7 @@
     }
 
     // Add welcome message
-    addMessage('bot', '欢迎使用 **洛谷仓库 GenGen Edition**！\n\n你可以问我任何问题，我会尽力回答你，喵～');
+    addMessage('bot', '欢迎使用 **GenGen 洛谷国际**！\n\n你可以问我任何问题，我会尽力回答你，喵～');
 
     const input = document.getElementById('message-input');
     const sendBtn = document.getElementById('send-button');
