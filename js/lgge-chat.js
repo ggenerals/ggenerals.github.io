@@ -20,6 +20,7 @@
     // Create style element
     const style = document.createElement('style');
     style.textContent = `
+
       #chat-sidebar {
         position: fixed;
         left: 90px;
@@ -41,6 +42,12 @@
       #chat-sidebar:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 35px rgba(106, 13, 173, 0.4);
+      }
+      
+      @media (max-width: 1399px) {
+        #chat-sidebar {
+          display: none !important; 
+        }
       }
       #selection-bar {
         padding: 8px 12px;
