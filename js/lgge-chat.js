@@ -168,6 +168,27 @@
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-6px); }
       }
+      /* === 暗色滚动条样式（精准适配暗色主题）=== */
+      #chat-messages::-webkit-scrollbar {
+        width: 8px;
+      }
+      #chat-messages::-webkit-scrollbar-track {
+        background: rgba(30, 20, 45, 0.7);
+        border-radius: 4px;
+      }
+      #chat-messages::-webkit-scrollbar-thumb {
+        background: rgba(106, 13, 173, 0.65);
+        border-radius: 4px;
+        border: 2px solid rgba(30, 20, 45, 0.7);
+      }
+      #chat-messages::-webkit-scrollbar-thumb:hover {
+        background: rgba(126, 33, 193, 0.85);
+      }
+      /* Firefox 暗色滚动条 */
+      #chat-messages {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(106, 13, 173, 0.65) rgba(30, 20, 45, 0.7);
+      }
     `;
     document.head.appendChild(style);
 
