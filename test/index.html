@@ -1,56 +1,10 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Slideshow</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#0a0a0a;display:flex;justify-content:center;align-items:center;min-height:100vh;overflow:hidden}
-    .stage{position:relative;width:90vw;max-width:480px}
-    .stage img{position:absolute;top:0;left:0;width:100%;height:auto;opacity:0;transition:opacity 0.6s ease}
-    .stage img.active{opacity:1;position:relative}
-    .info{position:fixed;bottom:20px;right:20px;color:#555;font:14px/1.5 monospace}
-  </style>
-</head>
-<body>
-  <div class="stage" id="stage"></div>
-  <div class="info" id="info">1 / 54</div>
-<script>
-  const BASE_URL = 'https://ghproxy.amlg.top/OI-liyifan202201/gif-video/refs/heads/main/';
-  const GIFS = [
-    'part_00.gif', 'part_01.gif', 'part_02.gif', 'part_03.gif', 'part_04.gif',
-    'part_05.gif', 'part_06.gif', 'part_07.gif', 'part_08.gif', 'part_09.gif',
-    'part_10.gif', 'part_11.gif', 'part_12.gif', 'part_13.gif', 'part_14.gif',
-    'part_15.gif', 'part_16.gif', 'part_17.gif', 'part_18.gif', 'part_19.gif',
-    'part_20.gif', 'part_21.gif', 'part_22.gif', 'part_23.gif', 'part_24.gif',
-    'part_25.gif', 'part_26.gif', 'part_27.gif', 'part_28.gif', 'part_29.gif',
-    'part_30.gif', 'part_31.gif', 'part_32.gif', 'part_33.gif', 'part_34.gif',
-    'part_35.gif', 'part_36.gif', 'part_37.gif', 'part_38.gif', 'part_39.gif',
-    'part_40.gif', 'part_41.gif', 'part_42.gif', 'part_43.gif', 'part_44.gif',
-    'part_45.gif', 'part_46.gif', 'part_47.gif', 'part_48.gif', 'part_49.gif',
-    'part_50.gif', 'part_51.gif', 'part_52.gif', 'part_53.gif'
-  ].map(name => BASE_URL + name);
-
-  let cur = 0;
-  const stage = document.getElementById('stage');
-  const info = document.getElementById('info');
-
-  GIFS.forEach((src, i) => {
-    const img = document.createElement('img');
-    img.src = src;
-    if (i === 0) img.classList.add('active');
-    stage.appendChild(img);
-  });
-
-  // 每30秒自动切换下一个，带淡入淡出
-  setInterval(() => {
-    const imgs = stage.querySelectorAll('img');
-    imgs[cur].classList.remove('active');
-    cur = (cur + 1) % imgs.length;
-    imgs[cur].classList.add('active');
-    info.textContent = `${cur + 1} / ${imgs.length}`;
-  }, 30000);
-</script>
-</body>
-</html>
+<!DOCTYPE video>
+<video src="https://j.1win.ggff.net/https://github.com/OI-liyifan202201/gif-video/releases/download/ts/video_.2.01___._0.mp4" 
+       controls 
+       preload="metadata"
+       playsinline 
+       webkit-playsinline
+       crossorigin="anonymous"
+       style="width:100%;max-width:100vw;height:auto;background:#000">
+  <p>您的浏览器不支持 HTML5 视频，请 <a href="视频URL" download>下载观看</a></p>
+</video>
